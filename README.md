@@ -1,3 +1,3 @@
-# :rocket: Portfolio
+# Portfolio
 
-Deployed at [josephemswiler.com](https://josephemswiler.com "Joseph Emswiler")
+:rocket: Deployed at [josephemswiler.com](https://josephemswiler.com "Joseph Emswiler")
