@@ -28,10 +28,6 @@ export default class NavTop extends React.Component {
     }
   }
 
-  componentDidMount () {
-    window.addEventListener('resize', this.windowResize)
-  }
-
   toggle () {
     this.setState({
       isOpen: !this.state.isOpen
@@ -43,8 +39,6 @@ export default class NavTop extends React.Component {
       tooltipOpen: !this.state.tooltipOpen
     })
   }
-
-  windowResize = () => {}
 
   styles = () => ({
     navbar: {

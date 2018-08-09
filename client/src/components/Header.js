@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
-import { Jumbotron, Container, Button, Col, Row } from 'reactstrap'
+import { Container, Button, Col, Row } from 'reactstrap'
 
 export default class Header extends Component {
   styles = () => ({
     wrapper: {
-      marginTop: 92
+      marginTop: this.props.navTopOffset,
+      backgroundColor: 'red',
+      padding: 20
     },
     jumbotron: {},
     button: {
