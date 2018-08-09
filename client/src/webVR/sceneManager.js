@@ -24,7 +24,7 @@ export default canvas => {
   const initCameraTarget = {
     x: 0,
     y: 0,
-    z: 0
+    z: 1200
   }
   let mouseX = 0, mouseY = 0
 
@@ -86,7 +86,7 @@ export default canvas => {
     camera.position.x += (mouseX - camera.position.x) * 0.05
     camera.position.y += (-mouseY - camera.position.y) * 0.05
     camera.lookAt(scene.position)
-    camera.position.z += .1
+    camera.position.z -= .1
 
     renderer.render(scene, camera)
     TWEEN.update()

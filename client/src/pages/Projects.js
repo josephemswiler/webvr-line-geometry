@@ -1,34 +1,59 @@
 import React, { Component } from 'react'
-import API from '../utils/API'
+// import API from '../utils/API'
 import { Container, Col, Row } from 'reactstrap'
+import CardBasic from '../components/CardBasic'
+import Header from '../components/Header'
 
 export default class Projects extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      projects: [],
-      title: '',
-      author: '',
-      synopsis: ''
+      projects: [1, 2, 3, 4, 5, 6],
+      navTopOffset: 92,
+      currentWindowHeight: window.innerHeight,
+      selectedProject: null
     }
   }
 
   componentDidMount () {
-    this.loadProjects()
+    window.addEventListener('resize', this.windowResize)
+    // this.loadProjects()
   }
 
-  loadProjects = () => {
-    API.getProjects()
-      .then(res => this.setState({ projects: res.data }))
-      .catch(err => console.log(err))
+  windowResize = () => {
+    this.setState({
+      currentWindowHeight: window.innerHeight
+    })
   }
+
+  // loadProjects = () => {
+  //   API.getProjects()
+  //     .then(res => console.log(res.data)) //this.setState({ projects: res.data }))
+  //     .catch(err => console.log(err))
+  // }
+
+  styles = () => ({
+    wrapper: {
+      width: '100vw',
+      height: this.state.currentWindowHeight - this.state.navTopOffset,
+      justifyContent: 'center',
+      alignContent: 'center',
+      marginTop: this.state.navTopOffset
+    },
+    scrollRow: {
+      overflowX: 'auto',
+    }
+  })
 
   render () {
     return (
-      <Container>
-        <Row>
+      <Container style={this.styles().wrapper}>
+        <Row style={this.styles().scrollRow}>
           <Col>
+            {this.state.projects.map( (item, idx) => (
+              <CardBasic title={item} subtitle='June 2018' key={idx} />
+            ))}
           </Col>
         </Row>
       </Container>

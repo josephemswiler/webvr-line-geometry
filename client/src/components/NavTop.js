@@ -28,10 +28,20 @@ export default class NavTop extends React.Component {
     }
   }
 
+  componentDidMount () {
+    window.addEventListener('resize', this.windowResize)
+  }
+
+  windowResize = () => {
+    console.log(this.state.isOpen)
+    this.props.windowResize(this.state.isOpen)
+  }
+
   toggle () {
     this.setState({
       isOpen: !this.state.isOpen
     })
+    this.props.toggleOverlay()
   }
 
   tooltipToggle () {
@@ -78,13 +88,10 @@ export default class NavTop extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='mr-auto' navbar>
               <NavItem>
-                <Link className='nav-link' to='/'>Home</Link>
-              </NavItem>
-              <NavItem>
                 <Link className='nav-link' to='/projects/'>Projects</Link>
               </NavItem>
               <NavItem>
-                <Link className='nav-link' to='/about/'>About</Link>
+                <Link className='nav-link' to='/about'>About</Link>
               </NavItem>
             </Nav>
             <Nav className='ml-auto' navbar>

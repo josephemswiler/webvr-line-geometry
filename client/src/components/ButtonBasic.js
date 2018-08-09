@@ -36,7 +36,7 @@ export default class ButtonBasic extends Component {
 
   styles = () => ({
     button: {
-      maxWidth: '240px',
+      // maxWidth: '240px',
       color: this.state.color,
       borderColor: this.state.borderColor,
       backgroundColor: this.state.backgroundColor,
@@ -50,7 +50,7 @@ export default class ButtonBasic extends Component {
       <Button
         style={this.styles().button}
         className={this.state.alignment}
-        color='outline-secondary'
+        color='outline-primary'
         block
         onMouseEnter={this.hover}
         onMouseLeave={this.hover}

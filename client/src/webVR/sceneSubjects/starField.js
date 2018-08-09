@@ -17,8 +17,8 @@ export default scene => {
     }
   }
 
-  const starsMaterial1 = new THREE.PointsMaterial({ color: 0x888888 })
-  const starsMaterial2 = new THREE.PointsMaterial({ color: 0xCCCCCC })
+  const starsMaterial1 = new THREE.LineBasicMaterial({ color: 0x888888 })
+  const starsMaterial2 = new THREE.LineBasicMaterial({ color: 0xCCCCCC })
 
   const starField1 = new THREE.Line(starsGeometry1, starsMaterial1)
   const starField2 = new THREE.Line(starsGeometry2, starsMaterial2)
