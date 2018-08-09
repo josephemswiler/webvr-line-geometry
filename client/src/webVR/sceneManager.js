@@ -24,8 +24,9 @@ export default canvas => {
   const initCameraTarget = {
     x: 0,
     y: 0,
-    z: 0 + 5
+    z: 0
   }
+  let mouseX = 0, mouseY = 0
 
   moveCameraToTarget(initCameraTarget, 1.5)
 
@@ -64,7 +65,7 @@ export default canvas => {
       farPlane
     )
 
-    camera.position.z = 40
+    camera.position.z = 0
 
     return camera
   }
@@ -82,6 +83,11 @@ export default canvas => {
       sceneSubjects[i].update(elapsedTime)
     }
 
+    camera.position.x += (mouseX - camera.position.x) * 0.05
+    camera.position.y += (-mouseY - camera.position.y) * 0.05
+    camera.lookAt(scene.position)
+    camera.position.z += .1
+
     renderer.render(scene, camera)
     TWEEN.update()
   }
@@ -96,6 +102,13 @@ export default canvas => {
     camera.updateProjectionMatrix()
 
     renderer.setSize(width, height)
+  }
+
+  document.addEventListener('mousemove', onDocumentMouseMove, false)
+
+  function onDocumentMouseMove (event) {
+    mouseX = event.clientX
+    mouseY = event.clientY
   }
 
   function onMouseMove (x, y) {
@@ -124,7 +137,7 @@ export default canvas => {
   }
 
   function moveCameraToTarget (target, delayInSeconds = 0) {
-    delayInSeconds *= 1000
+    delayInSeconds *= 0
     setTimeout(() => {
       const origin = {
         x: camera.position.x,
