@@ -7,7 +7,8 @@ export default class Home extends Component {
 
     this.state = {
       navTopOffset: 92,
-      currentWindowHeight: window.innerHeight
+      currentWindowHeight: window.innerHeight,
+      color: '#fff'
     }
   }
 
@@ -24,7 +25,9 @@ export default class Home extends Component {
   styles = () => ({
     wrapper: {
       width: '100vw',
-      height: this.state.currentWindowHeight - this.state.navTopOffset
+      height: this.state.currentWindowHeight - this.state.navTopOffset,
+      justifyContent: 'center',
+      alignContent: 'center',
     }
 })
 

@@ -65,7 +65,7 @@ export default class NavTop extends React.Component {
     
     return (
       <div>
-        <Navbar style={this.styles().navbar} className='transparent fixed-top' light expand='md'>
+        <Navbar style={this.styles().navbar} className='transparent fixed-top' dark expand='md'>
           <Link style={this.styles().brand} className='navbar-brand' to='/'>
             Joseph Emswiler
           </Link>
