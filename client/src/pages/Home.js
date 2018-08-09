@@ -3,21 +3,16 @@ import Header from '../components/Header'
 
 export default class Home extends Component {
 
-  styles = {
+  styles = () => ({
     wrapper: {
-      color: 'red',
-      flex: 1,
-      justifyContent: 'center',
-      alignContent: 'center',
-      alignSelf: 'center',
-      width: '100vw',
-      height: '100vh'
+      color: 'red'
     }
-  }
+})
 
   render () {
     return (
-      <div style={this.styles.wrapper}>
+      <div style={this.styles().wrapper}>
+      hello home
         <Header />
       </div>
     )

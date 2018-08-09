@@ -1,16 +1,12 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem
+  NavLink
 } from 'reactstrap'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -37,10 +33,14 @@ export default class NavTop extends React.Component {
   styles = () => ({
       navbar: {
         justifyContent: 'center',
-        alignContent: 'center'
+        alignContent: 'center',
+        border: 'none'
       },
       brand: {
         position: 'absolute',
+      },
+      icon: {
+        fontSize: '20px'
       }
   })
 
@@ -48,34 +48,34 @@ export default class NavTop extends React.Component {
     return (
       <div>
         <Navbar style={this.styles().navbar} color='light' light expand='md'>
-          <NavbarBrand style={this.styles().brand} href='/'>Joseph Emswiler</NavbarBrand>
+          <Link style={this.styles().brand} className='navbar-brand' to='/'>Joseph Emswiler</Link>
           <NavbarToggler className='mr-auto' onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className='mr-auto' navbar>
               <NavItem>
-                <NavLink href='/home/'>Home</NavLink>
+                <Link className='nav-link' to='/'>Home</Link>
               </NavItem>
               <NavItem>
-                <NavLink href='/projects/'>Projects</NavLink>
+                <Link className='nav-link' to='/projects/'>Projects</Link>
               </NavItem>
               <NavItem>
-                <NavLink href='/about/'>About</NavLink>
+                <Link className='nav-link' to='/about/'>About</Link>
               </NavItem>
               </Nav>
               <Nav className='ml-auto' navbar>
               <NavItem>
-                <NavLink href='https://github.com/reactstrap/reactstrap'>
-                  <FontAwesomeIcon icon={['fab', 'github']} />
+                <NavLink href='https://github.com/josephemswiler' target="_blank">
+                  <FontAwesomeIcon style={this.styles().icon} icon={['fab', 'github']} />
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href='https://github.com/reactstrap/reactstrap'>
-                  <FontAwesomeIcon icon={['fab', 'linkedin']} />
+                <NavLink href='https://www.linkedin.com/in/josephemswiler/' target="_blank">
+                  <FontAwesomeIcon style={this.styles().icon} icon={['fab', 'linkedin']} />
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href='https://github.com/reactstrap/reactstrap'>
-                  <FontAwesomeIcon icon={['fas', 'envelope']} />
+                <NavLink href='mailto:josephemswiler@gmail.com' target="_blank">
+                  <FontAwesomeIcon style={this.styles().icon} icon={['fas', 'envelope']} />
                 </NavLink>
               </NavItem>
             </Nav>
