@@ -19,7 +19,7 @@ export default class ButtonBasic extends Component {
     switch(event.type) {
       case 'mouseenter':
         this.setState({
-          color: '#000',
+          color: '#fff',
           backgroundColor: this.props.color
         })
       break
