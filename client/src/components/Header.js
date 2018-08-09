@@ -1,10 +1,37 @@
-import React, { Component } from 'react';
+import React, { Component } from 'react'
+import { Jumbotron, Container, Button, Col, Row } from 'reactstrap'
 
 export default class Header extends Component {
-  render() {
+  styles = () => ({
+    wrapper: {
+      marginTop: 92
+    },
+    jumbotron: {},
+    button: {
+      maxWidth: '240px'
+    }
+  })
+
+  render () {
     return (
-      <div className="header">
-        { this.props.children }
+      <div style={this.styles().wrapper}>
+        <Container fluid style={this.styles().jumbotron}>
+          <Row>
+            <Col>
+              <h1 className='display-3 d-flex justify-content-center'>
+                Projects
+              </h1>
+            </Col>
+          </Row>
+          <Row>
+            <Col>
+              <Button style={this.styles().button} className='ml-auto' color='outline-primary' block>Finished</Button>
+            </Col>
+            <Col>
+              <Button style={this.styles().button} className='mr-auto' color='outline-primary' block>WIP</Button>
+            </Col>
+          </Row>
+        </Container>
       </div>
     )
   }

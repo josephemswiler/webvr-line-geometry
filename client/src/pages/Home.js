@@ -5,14 +5,14 @@ export default class Home extends Component {
 
   styles = () => ({
     wrapper: {
-      color: 'red'
+      width: '100vw',
+      height: '100vh'
     }
 })
 
   render () {
     return (
       <div style={this.styles().wrapper}>
-      hello home
         <Header />
       </div>
     )
