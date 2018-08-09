@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Container, Col, Row } from 'reactstrap'
 import ButtonBasic from './ButtonBasic'
+import { Link } from 'react-router-dom'
 
 export default class Header extends Component {
   styles = () => ({
@@ -13,6 +14,9 @@ export default class Header extends Component {
     jumbotron: {
       width: '100%',
       height: '100%'
+    },
+    headerTitle: {
+      color: '#777'
     }
   })
 
@@ -22,17 +26,17 @@ export default class Header extends Component {
         <Container fluid style={this.styles().jumbotron}>
           <Row>
             <Col>
-              <h1 className='display-3 d-flex justify-content-center text-white'>
+              <h1 style={this.styles().headerTitle} className='display-3 d-flex justify-content-center'>
                 Hello world.
               </h1>
             </Col>
           </Row>
           <Row>
             <Col>
-              <ButtonBasic alignment='ml-auto' text='Projects' />
+              <Link to='/projects' style={{ textDecoration: 'none' }}><ButtonBasic alignment='ml-auto' text='Projects' color='#777' /></Link>
             </Col>
             <Col>
-              <ButtonBasic alignment='mr-auto' text='WIP' />
+              <ButtonBasic alignment='mr-auto' text='WIP' color='#777' />
             </Col>
           </Row>
         </Container>

@@ -2,15 +2,32 @@ import React, { Component } from 'react'
 import { Button } from 'reactstrap'
 
 export default class ButtonBasic extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      alignment: this.props.alignment,
+      text: this.props.text,
+      color: this.props.color,
+      borderColor: this.props.color,
+      backgroundColor: 'transparent'
+    }
+  }
   
   
   hover = event => {
     switch(event.type) {
       case 'mouseenter':
-        console.log('entre')
+        this.setState({
+          color: '#000',
+          backgroundColor: this.props.color
+        })
       break
       case 'mouseleave':
-        console.log('bye')
+        this.setState({
+          color: this.props.color,
+          backgroundColor: 'transparent'
+        })
       break
       default:
       return
@@ -19,7 +36,12 @@ export default class ButtonBasic extends Component {
 
   styles = () => ({
     button: {
-      maxWidth: '240px'
+      maxWidth: '240px',
+      color: this.state.color,
+      borderColor: this.state.borderColor,
+      backgroundColor: this.state.backgroundColor,
+      letterSpacing: 2,
+      textDecoration: 'none'
     }
   })
 
@@ -27,13 +49,13 @@ export default class ButtonBasic extends Component {
     return (
       <Button
         style={this.styles().button}
-        className={this.props.alignment}
+        className={this.state.alignment}
         color='outline-secondary'
         block
         onMouseEnter={this.hover}
         onMouseLeave={this.hover}
       >
-        {this.props.text}
+        {this.state.text}
       </Button>
     )
   }

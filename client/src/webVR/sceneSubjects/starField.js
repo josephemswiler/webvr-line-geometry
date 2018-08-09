@@ -1,30 +1,30 @@
 import * as THREE from 'three'
 
 export default scene => {
-  const starsGeometry1 = new THREE.Geometry()
-  const starsGeometry2 = new THREE.Geometry()
+  const linesGeometryOne = new THREE.Geometry()
+  const linesGeometryTwo = new THREE.Geometry()
 
   for (var i = 0; i < 10000; i++) {
-    var star = new THREE.Vector3()
-    star.x = THREE.Math.randFloatSpread(2000)
-    star.y = THREE.Math.randFloatSpread(2000)
-    star.z = THREE.Math.randFloatSpread(2000)
+    var line = new THREE.Vector3()
+    line.x = THREE.Math.randFloatSpread(2000)
+    line.y = THREE.Math.randFloatSpread(2000)
+    line.z = THREE.Math.randFloatSpread(2000)
 
     if (i % 2 === 0) {
-      starsGeometry1.vertices.push(star)
+        linesGeometryOne.vertices.push(line)
     } else {
-      starsGeometry2.vertices.push(star)
+        linesGeometryTwo.vertices.push(line)
     }
   }
 
-  const starsMaterial1 = new THREE.PointsMaterial({ color: 0x888888 })
-  const starsMaterial2 = new THREE.PointsMaterial({ color: 0xFFE599 })
+  const linesMaterialOne = new THREE.LineBasicMaterial({ color: 0x888888 })
 
-  const starField1 = new THREE.Points(starsGeometry1, starsMaterial1)
-  const starField2 = new THREE.Points(starsGeometry2, starsMaterial2)
+  const lineGroupOne = new THREE.LineSegments(linesGeometryOne, linesMaterialOne)
 
-  scene.add(starField1)
-  scene.add(starField2)
+  lineGroupOne.rotation.y = Math.random() * Math.PI
+  lineGroupOne.updateMatrix()
+
+  scene.add(lineGroupOne)
 
   function update (time) {
     // do something
