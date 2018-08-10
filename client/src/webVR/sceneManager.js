@@ -86,6 +86,7 @@ export default canvas => {
     camera.position.x += (mouseX - camera.position.x) * 0.05
     camera.position.y += (-mouseY - camera.position.y) * 0.05
     camera.lookAt(scene.position)
+
     camera.position.z -= 1
 
     renderer.render(scene, camera)
