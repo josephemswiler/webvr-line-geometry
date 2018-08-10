@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Header from '../components/Header'
+import { Button} from 'reactstrap'
 
 export default class About extends Component {
   constructor (props) {
@@ -50,6 +51,7 @@ export default class About extends Component {
             When I'm not slingin' bits, I run, I cook, and I explore local breweries.
           </p>
         </div>
+        <Button>Hello</Button>
       </div>
     )
   }
