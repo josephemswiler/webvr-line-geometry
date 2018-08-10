@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 // import API from '../utils/API'
 import { Container, Col, Row } from 'reactstrap'
 import CardBasic from '../components/CardBasic'
-import Header from '../components/Header'
+import Carousel from '../components/Carousel'
 
 export default class Projects extends Component {
   constructor (props) {
@@ -42,7 +42,7 @@ export default class Projects extends Component {
       marginTop: this.state.navTopOffset
     },
     scrollRow: {
-      overflowX: 'auto',
+      height: '100%'
     }
   })
 
@@ -50,10 +50,11 @@ export default class Projects extends Component {
     return (
       <Container style={this.styles().wrapper}>
         <Row style={this.styles().scrollRow}>
-          <Col>
-            {this.state.projects.map( (item, idx) => (
+          <Col style={this.styles().scrollRow}>
+            <Carousel />
+            {/* {this.state.projects.map( (item, idx) => (
               <CardBasic title={item} subtitle='June 2018' key={idx} />
-            ))}
+            ))} */}
           </Col>
         </Row>
       </Container>

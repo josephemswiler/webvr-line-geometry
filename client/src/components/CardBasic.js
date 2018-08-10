@@ -18,6 +18,8 @@ export default class CardBasic extends Component {
 
   styles = () => ({
     card: {
+      border: 'none',
+      backgroundColor: '#eee'
     },
     cardBody: {
       padding: 20
@@ -31,8 +33,8 @@ export default class CardBasic extends Component {
     return (
       <Card style={this.styles().card}>
         <CardBody>
-          <CardTitle>{this.props.title}</CardTitle>
-          <CardSubtitle>{this.props.subtitle}</CardSubtitle>
+          <CardTitle>Jello</CardTitle>
+          <CardSubtitle>June 2018</CardSubtitle>
         </CardBody>
         <img
           width='100%'
